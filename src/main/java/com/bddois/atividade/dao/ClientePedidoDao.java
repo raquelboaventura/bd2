@@ -22,10 +22,8 @@ public class ClientePedidoDao {
                 group by c.nome\s
                 order by total
                 """;
-        return db.query(sql,(res,rowNum) -> {
-            return new ClientePedidoDto(
-                    res.getString("Nome"),
-                    res.getDouble("Total"));
-        });
+        return db.query(sql,(res,rowNum) -> new ClientePedidoDto(
+                res.getString("Nome"),
+                res.getDouble("Total")));
     }
 }
