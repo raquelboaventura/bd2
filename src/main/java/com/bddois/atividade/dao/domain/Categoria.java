@@ -1,4 +1,4 @@
-package com.bddois.atividade.domain;
+package com.bddois.atividade.dao.domain;
 import lombok.Data;
 
 @Data

@@ -1,14 +1,15 @@
-package com.bddois.atividade.domain.Dao;
+package com.bddois.atividade.dao;
 
 
 import java.util.List;
+
+import com.bddois.atividade.dao.domain.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
-import com.bddois.atividade.domain.Categoria;
 
 @Component
-public class CategoriaDAO {
+public class CategoriaDao {
 
 @Autowired
 private JdbcTemplate db;
