@@ -15,12 +15,7 @@ public class ClientePedidoDao {
 
     public List<ClientePedidoDto> getClientesPedidos(){
         String sql = """
-                select c.nome,sum(dp.precoVenda * dp. quantidade) as total \s
-                from clientes c \s
-                left join pedidos p on c.clienteID = p.clienteID\s
-                left join detalhes_pedido dp on p.pedidoID = dp.pedidoID\s
-                group by c.nome\s
-                order by total
+                select * from view_pedidos_clientes;
                 """;
         return db.query(sql,(res,rowNum) -> new ClientePedidoDto(
                 res.getString("Nome"),
