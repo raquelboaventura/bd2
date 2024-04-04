@@ -21,4 +21,13 @@ public class ClientePedidoDao {
                 res.getString("Nome"),
                 res.getDouble("Total")));
     }
+
+    public List<ClientePedidoDto> getFiltroClientesPedidos(String filtro) {
+        String lista = "select * from view_pedidos_clientes where nome like '%" + filtro + "%'";
+        return db.query(lista, (res, rowNum) -> new ClientePedidoDto(
+                res.getString("Nome"),
+                res.getDouble("Total")));
+
+
+    }
 }
