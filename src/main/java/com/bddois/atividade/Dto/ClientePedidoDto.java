@@ -8,5 +8,6 @@ import lombok.Data;
 public class ClientePedidoDto {
     private String nome;
     private Double total;
+    private Double quantidade;
 
 }

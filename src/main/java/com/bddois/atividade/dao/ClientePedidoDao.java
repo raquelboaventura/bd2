@@ -19,15 +19,15 @@ public class ClientePedidoDao {
                 """;
         return db.query(sql,(res,rowNum) -> new ClientePedidoDto(
                 res.getString("Nome"),
-                res.getDouble("Total")));
+                res.getDouble("Total"),
+                res.getDouble("Quantidade")));
     }
 
     public List<ClientePedidoDto> getFiltroClientesPedidos(String filtro) {
         String lista = "select * from view_pedidos_clientes where nome like '%" + filtro + "%'";
         return db.query(lista, (res, rowNum) -> new ClientePedidoDto(
                 res.getString("Nome"),
-                res.getDouble("Total")));
-
-
+                res.getDouble("Total"),
+                res.getDouble("Quantidade")));
     }
 }

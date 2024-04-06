@@ -11,17 +11,29 @@ import org.springframework.stereotype.Component;
 @Component
 public class CategoriaDao {
 
-@Autowired
-private JdbcTemplate db;
-public List<Categoria> getCategorias() {
+    @Autowired
+    private JdbcTemplate db;
 
-String sql = "select categoriaID, categoria, descricao from categorias";
+    public List<Categoria> getCategorias() {
 
-return db.query(sql, (res, rowNum) -> {
-    return new Categoria(
-        res.getInt("categoriaID"),
-        res.getString("categoria"),
-        res.getString("descricao"));
+        String sql = "select categoriaID, categoria, descricao from categorias";
+
+        return db.query(sql, (res, rowNum) -> {
+            return new Categoria(
+                    res.getInt("categoriaID"),
+                    res.getString("categoria"),
+                    res.getString("descricao"));
+
+        });
+    }
+
+    public List<Categoria> getCategorias(String nome) {
+        String sql = "select categoriaID, categoria, descricao from categorias where categoria = " + nome + ";";
+        return db.query(sql, (res, rowNum) -> {
+            return new Categoria(
+                    res.getInt("categoriaID"),
+                    res.getString("categoria"),
+                    res.getString("descricao"));
 
         });
     }
